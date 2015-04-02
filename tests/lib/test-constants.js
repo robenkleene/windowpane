@@ -1,0 +1,1 @@
+exports.testWindowBounds = { x: 50, y: 50, width: 500, height: 500 }
