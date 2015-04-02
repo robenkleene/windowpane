@@ -8,8 +8,7 @@ function testFocusedWindow() {
   TestsHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
   var focusedWindow = WindowHelper.getFocusedWindow();
 
-
-  console.log(focusedWindow.bounds);
+  console.log(Object.keys(focusedWindow.bounds()));
 }
 
 testFocusedWindow();
