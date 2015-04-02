@@ -1,8 +1,8 @@
-var TestConstants = require('./lib/test-constants.js');
-var TestsHelper = require('./lib/test-helper.js');
-var WindowTestsHelper = require('./lib/window-tests-helper.js')
+var TestConstants = require('./lib/test-constants');
+var TestsHelper = require('./lib/test-helper');
+var WindowTestsHelper = require('./lib/window-tests-helper')
 
-var Window = require('../lib/window.js');
+var Window = require('../lib/window');
 
 function setUp() {
   WindowTestsHelper.activate();

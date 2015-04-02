@@ -1,2 +1,2 @@
-require('./window-helper-tests.js');
-require('./screen-tests.js');
+require('./window-helper-tests');
+require('./screen-tests');

@@ -1,6 +1,6 @@
-var TestsHelper = require('./lib/test-helper.js');
+var TestsHelper = require('./lib/test-helper');
 
-var Screen = require('../lib/screen.js');
+var Screen = require('../lib/screen');
 
 function testBounds() {
   var bounds = Screen.bounds();
