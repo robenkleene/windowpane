@@ -16,21 +16,24 @@ function testEmptyConstructor() {
 }
 
 function testNearestGridCoordinatesForWindow() {
-  var grid = new Grid(6, 3);
+  var mockScreen = {
+    bounds: function () {
+      return TestConstants.testScreenBounds;
+    }    
+  }
+
+  var grid = new Grid(6, 3, mockScreen);
+
   var mockWindow = {
     bounds: function () {
       return TestConstants.testWindowBounds;
     }
   }
+
   var gridCoordinates = grid.nearestGridCoordinatesForWindow(mockWindow);
 
-console.log("gridCoordinates = " + gridCoordinates)
-TestHelper.logBounds(gridCoordinates);
-  
-  // get.x =   0
-  // get.y =   0
-  // get.w =   2
-  // get.h =   2
+  var result = TestHelper.boundsEqualsBounds(gridCoordinates, TestConstants.testGridCoordinatesForTestWindow);
+  TestHelper.assert(result, "The grid coordinates should equal the grid coordinates for the test window");
 }
 
 testEmptyConstructor();
