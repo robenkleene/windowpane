@@ -16,18 +16,16 @@ function testEmptyConstructor() {
 }
 
 function testNearestGridCoordinatesForWindow() {
-  var grid = new Grid(3, 6);
+  var grid = new Grid(6, 3);
   var mockWindow = {
     bounds: function () {
       return TestConstants.testWindowBounds;
     }
   }
-
-console.log("mockWindow.bounds() = " + mockWindow.bounds())
-
   var gridCoordinates = grid.nearestGridCoordinatesForWindow(mockWindow);
+
 console.log("gridCoordinates = " + gridCoordinates)
-  TestHelper.logBounds(gridCoordinates);
+TestHelper.logBounds(gridCoordinates);
   
   // get.x =   0
   // get.y =   0
