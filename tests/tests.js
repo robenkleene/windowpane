@@ -1,3 +1,3 @@
-// require('./window-helper-tests');
+// require('./window-tests');
 // require('./screen-tests');
 require('./grid-tests');
