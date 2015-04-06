@@ -14,14 +14,14 @@ function testFocusedWindow() {
   WindowTestsHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
   var focusedWindow = Window.getFocusedWindow();
   var result = TestsHelper.boundsEqualsBounds(focusedWindow.bounds(), TestConstants.testWindowBounds);
-  TestsHelper.assert(result, "The focused window's bounds should equal the test bounds.");
+  TestsHelper.assert(result, "The focused window's bounds should equal the test bounds");
 }
 
 function testNoFocusedWindow() {
   setUp();
   var focusedWindow = Window.getFocusedWindow();
   var result = (focusedWindow === null);
-  TestsHelper.assert(result, "The focused window should equal null.");
+  TestsHelper.assert(result, "The focused window should equal null");
 }
 
 testFocusedWindow();
