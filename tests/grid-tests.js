@@ -24,13 +24,13 @@ function testNearestGridCoordinatesForWindow() {
 
   var grid = new Grid(6, 3, mockScreen);
 
-  var mockWindow = {
-    bounds: function () {
-      return TestConstants.testWindowBounds;
-    }
-  }
+  // var mockWindow = {
+  //   bounds: function () {
+  //     return TestConstants.testWindowBounds;
+  //   }
+  // }
 
-  var gridCoordinates = grid.nearestGridCoordinatesForWindow(mockWindow);
+  var gridCoordinates = grid.nearestGridCoordinatesForBounds(TestConstants.testWindowBounds);
 
   var result = TestHelper.boundsEqualsBounds(gridCoordinates, TestConstants.testGridCoordinatesForTestWindow);
   TestHelper.assert(result, "The grid coordinates should equal the grid coordinates for the test window");
