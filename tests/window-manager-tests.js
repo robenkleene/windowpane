@@ -1,18 +1,19 @@
-// function testEmptyConstructor() {
-//   var grid = new Grid();
-//   TestHelper.assert(grid.horizontalBlocks == TestConstants.defaultHorizontalBlocks, "The new grid should have the default number of horizontal blocks");
-//   TestHelper.assert(grid.verticalBlocks == TestConstants.defaultVerticalBlocks, "The new grid should have the default number of vertical blocks");
-// }
+var TestHelper = require('./lib/test-helper');
+var TestConstants = require('./lib/test-constants');
+var WindowManager = require('../lib/window-manager');
 
-// var mockScreen = {
-//   bounds: function () {
-//     return TestConstants.testScreenBounds;
-//   }
-// }
+function testEmptyConstructor() {
+  var mockScreen = {
+    bounds: function () {
+      return TestConstants.testScreenBounds;
+    }
+  }
+  var windowManager = new WindowManager(null, null, mockScreen);
 
+console.log("windowManager.grid = " + windowManager.grid)
 
-// var mockWindow = {
-//   bounds: function () {
-//     return TestConstants.testWindowBounds;
-//   }
-// }
+  TestHelper.assert(windowManager.grid.horizontalBlocks == TestConstants.defaultHorizontalBlocks, "The new grid should have the default number of horizontal blocks");
+  TestHelper.assert(windowManager.grid.verticalBlocks == TestConstants.defaultVerticalBlocks, "The new grid should have the default number of vertical blocks");
+}
+
+testEmptyConstructor();
