@@ -8,48 +8,10 @@ exports.testWindowBoundsMovedLeft = { x: 53, y: 23, width: 462, height: 585 }
 exports.testWindowBoundsMovedRight = { x: 284, y: 23, width: 462, height: 585 }
 exports.testWindowBoundsMovedUp = { x: 53, y: 23, width: 462, height: 585 }
 
-// Moved left
-// newframe.x =   53
-// newframe.y =   23
-// newframe.w =   462.33333333333
-// newframe.h =   584.66666666667
-
-// Moved Right
-// newframe.x =   284.16666666667
-// newframe.y =   23
-// newframe.w =   462.33333333333
-// newframe.h =   584.66666666667
-
-// Moved Up
-// newframe.x =   53
-// newframe.y =   23
-// newframe.w =   462.33333333333
-// newframe.h =   584.66666666667
-
-// Resize Right
-// newframe.x =   53
-// newframe.y =   23
-// newframe.w =   693.5
-// newframe.h =   584.66666666667
-
-// Resize Left
-// newframe.x =   53
-// newframe.y =   23
-// newframe.w =   231.16666666667
-// newframe.h =   584.66666666667
-
-// Resize Down
-// newframe.x =   53
-// newframe.y =   23
-// newframe.w =   462.33333333333
-// newframe.h =   877
-
-// Resize Up
-// newframe.x =   53
-// newframe.y =   23
-// newframe.w =   462.33333333333
-// newframe.h =   292.33333333333
-
+exports.testWindowBoundsResizedDown = { x: 53, y: 23, width: 462, height: 877 }
+exports.testWindowBoundsResizedLeft = { x: 53, y: 23, width: 231, height: 585 }
+exports.testWindowBoundsResizedRight = { x: 53, y: 23, width: 694, height: 585 }
+exports.testWindowBoundsResizedUp = { x: 53, y: 23, width: 462, height: 292 }
 
 // Grid
 exports.defaultHorizontalBlocks = 6;

@@ -31,7 +31,7 @@ function testEmptyConstructor() {
 }
 
 
-// Bounds Tests
+// Bounds Move Tests
 
 function testBoundsMovedDown() {
   windowManager = new WindowManager(null, null, mockScreen);
@@ -60,6 +60,37 @@ function testBoundsMovedRight() {
   var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsMovedRight);
   TestHelper.assert(result, "The bounds should equal the test window bounds moved right");  
 }
+
+// Bounds Resize Tests
+
+function testBoundsResizedDown() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsResizedDown(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsResizedDown);
+  TestHelper.assert(result, "The bounds should equal the test window bounds resized down");  
+}
+
+function testBoundsResizedUp() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsResizedUp(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsResizedUp);
+  TestHelper.assert(result, "The bounds should equal the test window bounds resized up");  
+}
+
+function testBoundsResizedLeft() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsResizedLeft(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsResizedLeft);
+  TestHelper.assert(result, "The bounds should equal the test window bounds resized left");  
+}
+
+function testBoundsResizedRight() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsResizedRight(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsResizedRight);
+  TestHelper.assert(result, "The bounds should equal the test window bounds resized right");  
+}
+
 
 
 // Window Move Tests
@@ -110,6 +141,10 @@ testBoundsMovedDown();
 testBoundsMovedUp();
 testBoundsMovedLeft();
 testBoundsMovedRight();
+testBoundsResizedDown();
+testBoundsResizedUp();
+testBoundsResizedLeft();
+testBoundsResizedRight();
 testMoveWindowDown();
 testMoveWindowUp();
 testMoveWindowLeft();
