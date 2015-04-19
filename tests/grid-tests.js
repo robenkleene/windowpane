@@ -26,7 +26,7 @@ function testBoundsForGridCoordinates() {
   setUp();
   var bounds = grid.boundsForGridCoordinates(TestConstants.testGridCoordinatesForTestWindow);
 
-console.log("bounds = " + bounds)
+TestHelper.logBounds(bounds)
 }
 
 testConstructor();
