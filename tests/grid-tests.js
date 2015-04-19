@@ -3,19 +3,32 @@ var TestConstants = require('./lib/test-constants');
 
 var Grid = require('../lib/grid');
 
+var grid;
+
 function testConstructor() {
-  var grid = new Grid(5, 5, TestConstants.testScreenBounds);
+  grid = new Grid(5, 5, TestConstants.testScreenBounds);
   TestHelper.assert(grid.horizontalBlocks == 5, "The new grid should have three horizontal blocks");
   TestHelper.assert(grid.verticalBlocks == 5, "The new grid should have three vertical blocks");
 }
 
-function testNearestGridCoordinatesForWindow() {
-  var grid = new Grid(6, 3, TestConstants.testScreenBounds);
-  var gridCoordinates = grid.nearestGridCoordinatesForBounds(TestConstants.testWindowBounds);
+function setUp() {
+  grid = new Grid(TestConstants.defaultHorizontalBlocks, TestConstants.defaultVerticalBlocks, TestConstants.testScreenBounds);
+}
 
+function testNearestGridCoordinatesForWindow() {
+  setUp();
+  var gridCoordinates = grid.nearestGridCoordinatesForBounds(TestConstants.testWindowBounds);
   var result = TestHelper.boundsEqualsBounds(gridCoordinates, TestConstants.testGridCoordinatesForTestWindow);
   TestHelper.assert(result, "The grid coordinates should equal the grid coordinates for the test window");
 }
 
+function testBoundsForGridCoordinates() {
+  setUp();
+  var bounds = grid.boundsForGridCoordinates(TestConstants.testGridCoordinatesForTestWindow);
+
+console.log("bounds = " + bounds)
+}
+
 testConstructor();
 testNearestGridCoordinatesForWindow();
+testBoundsForGridCoordinates();
