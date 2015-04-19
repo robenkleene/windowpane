@@ -6,7 +6,7 @@ exports.assert = function(condition, message) {
         }
         throw message;
     }
-}
+};
 
 exports.boundsEqualsBounds = function(bounds1, bounds2) {
   return (
@@ -15,7 +15,7 @@ exports.boundsEqualsBounds = function(bounds1, bounds2) {
     bounds1.width == bounds2.width &&
     bounds1.height == bounds2.height
   );
-}
+};
 
 // Debug
 exports.logBounds = function(bounds) {
@@ -23,4 +23,4 @@ exports.logBounds = function(bounds) {
     console.log("y = " + bounds.y);
     console.log("width = " + bounds.width);
     console.log("height = " + bounds.height);
-}
+};

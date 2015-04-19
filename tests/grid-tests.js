@@ -15,6 +15,10 @@ function setUp() {
   grid = new Grid(TestConstants.defaultHorizontalBlocks, TestConstants.defaultVerticalBlocks, TestConstants.testScreenBounds);
 }
 
+function tearDown() {
+  grid = null;
+}
+
 function testNearestGridCoordinatesForWindow() {
   setUp();
   var gridCoordinates = grid.nearestGridCoordinatesForBounds(TestConstants.testWindowBounds);
