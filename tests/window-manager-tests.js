@@ -38,16 +38,41 @@ function testBoundsMovedDown() {
   TestHelper.assert(result, "The bounds should equal the test window bounds moved down");  
 }
 
+function testBoundsMovedUp() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsMovedUp(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsMovedUp);
+  TestHelper.assert(result, "The bounds should equal the test window bounds moved up");  
+}
+
+function testBoundsMovedLeft() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsMovedLeft(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsMovedLeft);
+  TestHelper.assert(result, "The bounds should equal the test window bounds moved left");  
+}
+
+function testBoundsMovedRight() {
+  windowManager = new WindowManager(null, null, mockScreen);
+  var bounds = windowManager.boundsMovedRight(TestConstants.testWindowBounds); 
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsMovedRight);
+  TestHelper.assert(result, "The bounds should equal the test window bounds moved right");  
+}
+
+
 function testMoveWindowDown() {
   setUp();
   WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
   windowManager.moveFocusedWindowDown();
   var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsMovedDown);
   var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
-  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds moved down");  
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds moved down");
   tearDown();
 }
 
 testEmptyConstructor();
 testBoundsMovedDown();
+testBoundsMovedUp();
+testBoundsMovedLeft();
+testBoundsMovedRight();
 testMoveWindowDown();
