@@ -25,8 +25,8 @@ function testNearestGridCoordinatesForWindow() {
 function testBoundsForGridCoordinates() {
   setUp();
   var bounds = grid.boundsForGridCoordinates(TestConstants.testGridCoordinatesForTestWindow);
-
-TestHelper.logBounds(bounds)
+  var result = TestHelper.boundsEqualsBounds(bounds, TestConstants.testWindowBoundsWithTestGridCoordinates);
+  TestHelper.assert(result, "The bounds should equal the test window bounds with test grid coordinates");
 }
 
 testConstructor();

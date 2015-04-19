@@ -9,9 +9,6 @@ function testEmptyConstructor() {
     }
   }
   var windowManager = new WindowManager(null, null, mockScreen);
-
-console.log("windowManager.grid = " + windowManager.grid)
-
   TestHelper.assert(windowManager.grid.horizontalBlocks == TestConstants.defaultHorizontalBlocks, "The new grid should have the default number of horizontal blocks");
   TestHelper.assert(windowManager.grid.verticalBlocks == TestConstants.defaultVerticalBlocks, "The new grid should have the default number of vertical blocks");
 }
