@@ -24,12 +24,14 @@ function tearDown() {
   windowManager = null;
 }
 
-
 function testEmptyConstructor() {
   var windowManager = new WindowManager(null, null, mockScreen);
   TestHelper.assert(windowManager.grid.horizontalBlocks == TestConstants.defaultHorizontalBlocks, "The new grid should have the default number of horizontal blocks");
   TestHelper.assert(windowManager.grid.verticalBlocks == TestConstants.defaultVerticalBlocks, "The new grid should have the default number of vertical blocks");
 }
+
+
+// Bounds Tests
 
 function testBoundsMovedDown() {
   windowManager = new WindowManager(null, null, mockScreen);
@@ -60,6 +62,8 @@ function testBoundsMovedRight() {
 }
 
 
+// Window Move Tests
+
 function testMoveWindowDown() {
   setUp();
   WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
@@ -70,9 +74,43 @@ function testMoveWindowDown() {
   tearDown();
 }
 
+function testMoveWindowUp() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.moveFocusedWindowUp();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsMovedUp);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds moved up");
+  tearDown();
+}
+
+function testMoveWindowLeft() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.moveFocusedWindowLeft();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsMovedLeft);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds moved left");
+  tearDown();
+}
+
+function testMoveWindowRight() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.moveFocusedWindowRight();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsMovedRight);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds moved right");
+  tearDown();
+}
+
+
 testEmptyConstructor();
 testBoundsMovedDown();
 testBoundsMovedUp();
 testBoundsMovedLeft();
 testBoundsMovedRight();
 testMoveWindowDown();
+testMoveWindowUp();
+testMoveWindowLeft();
+testMoveWindowRight();
