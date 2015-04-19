@@ -136,6 +136,49 @@ function testMoveWindowRight() {
 }
 
 
+// Window Resize Tests
+
+function testResizeWindowDown() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.resizeFocusedWindowDown();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsResizedDown);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds resized down");
+  tearDown();
+}
+
+function testResizeWindowUp() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.resizeFocusedWindowUp();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsResizedUp);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds resized up");
+  tearDown();
+}
+
+function testResizeWindowLeft() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.resizeFocusedWindowLeft();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsResizedLeft);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds resized left");
+  tearDown();
+}
+
+function testResizeWindowRight() {
+  setUp();
+  WindowTestHelper.makeWindowWithBounds(TestConstants.testWindowBounds);
+  windowManager.resizeFocusedWindowRight();
+  var testWindowBoundsHacked = windowManager.grid.boundsHacked(TestConstants.testWindowBoundsResizedRight);
+  var result = TestHelper.boundsEqualsBounds(Window.focusedWindow().bounds(), testWindowBoundsHacked);
+  TestHelper.assert(result, "The windows bounds should equal the hacked test window bounds resized right");
+  tearDown();
+}
+
+
 testEmptyConstructor();
 testBoundsMovedDown();
 testBoundsMovedUp();
@@ -149,3 +192,7 @@ testMoveWindowDown();
 testMoveWindowUp();
 testMoveWindowLeft();
 testMoveWindowRight();
+testResizeWindowDown();
+testResizeWindowUp();
+testResizeWindowLeft();
+testResizeWindowRight();
