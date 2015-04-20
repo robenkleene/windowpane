@@ -8,4 +8,11 @@ function setupFinderWindow() {
 }
 
 setupFinderWindow();
-resizeFocusedWindowDown();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
+resizeFocusedWindowRight();
