@@ -1,5 +1,4 @@
-WindowManagerLibrary = this;
-// WindowManagerLibrary = Library('window-manager');
+WindowManagerLibrary = Library('window-manager');
 
 var gridSize = { width: 6, height: 3 };
 
@@ -73,7 +72,7 @@ function performScreenAdjustment(screenAdjustment) {
   if (index >= screenFrames.length) {
     index = 0;
   } else if (index < 0) {
-    index = screens.length;
+    index = screenFrames.length - 1;
   }
 
   var destinationScreenFrame = screenFrames[index];
