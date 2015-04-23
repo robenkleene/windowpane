@@ -1,3 +1,3 @@
 #!/bin/bash
 
-browserify ../lib/wrapper.js | osascript -l JavaScript
+(cat ../window-manager.js; browserify ../tests/tests.js) | osascript -l JavaScript
