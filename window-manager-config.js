@@ -68,12 +68,14 @@ function performScreenAdjustment(screenAdjustment) {
   var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
   var screenFrames = WindowManagerLibrary.getScreenFrames();
   var index = WindowManagerLibrary.indexOfWindowFrameInScreenFrames(windowFrame, screenFrames);
-  screenAdjustment(index);
-  if (index > screenFrames.length) {
-	index = 0;
+
+  index = screenAdjustment(index);
+  if (index >= screenFrames.length) {
+    index = 0;
   } else if (index < 0) {
-	index = screens.length;
+    index = screens.length;
   }
+
   var destinationScreenFrame = screenFrames[index];
 
   var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
@@ -83,11 +85,11 @@ function performScreenAdjustment(screenAdjustment) {
 }
 
 function moveFocusedWindowToNextScreen() {
-  var screenAdjustment = function(index) { index++; };
+  var screenAdjustment = function(index) { index++; return index };
   performScreenAdjustment(screenAdjustment);
 }
 
 function moveFocusedWindowToPreviousScreen() {
-  var screenAdjustment = function(index) { index--; };
+  var screenAdjustment = function(index) { index--; return index };
   performScreenAdjustment(screenAdjustment);
 }
