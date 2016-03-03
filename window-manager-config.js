@@ -6,14 +6,21 @@ var gridSize = { width: 6, height: 3 };
 // Window
 
 function performWindowAdjustment(windowAdjustment) {
-  var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
-  var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
-  var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize)
-  windowAdjustment(gridCoordinates);
-  gridCoordinates = WindowManagerLibrary.validGridCoordinates(gridCoordinates, gridSize);
 
-  var frame = WindowManagerLibrary.frameForGridCoordinates(gridCoordinates, screenFrame, gridSize);
-  WindowManagerLibrary.setFrameForFocusedWindow(frame);
+  try {
+    var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
+    var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
+    var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize)
+    windowAdjustment(gridCoordinates);
+    gridCoordinates = WindowManagerLibrary.validGridCoordinates(gridCoordinates, gridSize);
+
+    var frame = WindowManagerLibrary.frameForGridCoordinates(gridCoordinates, screenFrame, gridSize);
+    WindowManagerLibrary.setFrameForFocusedWindow(frame);
+  }
+
+  catch(err) {
+  }
+
 }
 
 // Move
