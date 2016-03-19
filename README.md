@@ -13,3 +13,7 @@ The theory is that Mjolnir is three things:
 Installing this window manager consists of three tedious steps:
 
 1. Open Script Editor
+
+## Caveats
+
+Re-saving is necessary for library changes to take place.
