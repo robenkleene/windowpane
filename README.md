@@ -1,10 +1,11 @@
 # Windowpane
 
-A grid-based window manager written purely in OS X's [JavaScript for Automation](https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW1) feature introduced in Yosemite.
+> *If you want to touch the sky* /<BR>
+> *Just put a window in your eye*
 
-## Inspiration
+Windowpane is a grid-based window manager written purely in OS X's [JavaScript for Automation](https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW1) feature introduced in Yosemite.
 
-This approach to window management was inspired by the [Mjolnir](https://github.com/sdegutis/mjolnir). In particular, it's mainly a port of the [mjolnir.sd.grid](https://luarocks.org/modules/sdegutis/mjolnir.sd.grid) Lua scripts. These scripts divide the screen into `X` horizontal divisions, and `Y` vertical divisions, and provide window sizes for a given converting from simple grid coordinates (e.g., `x = 2, y = 2, width = 2, height = 2`).
+This approach to window management was greatly inspired by the [Mjolnir](https://github.com/sdegutis/mjolnir), in fact, it's mainly just a port of the [mjolnir.sd.grid Lua scripts](https://luarocks.org/modules/sdegutis/mjolnir.sd.grid). The scripts divide the screen into `X` and `Y` horizontal and vertical divisions, and then provide for a given converting from simple grid coordinates (e.g., `x = 2, y = 2, width = 2, height = 2`).
 
 The window manager [Hammerspoon](http://www.hammerspoon.org/) is a fork of Mjjolnir
 
