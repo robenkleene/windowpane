@@ -1,4 +1,4 @@
-WindowManagerLibrary = Library('window-manager');
+WindowManagerLibrary = Library('windowpane');
 
 var gridSize = { width: 6, height: 3 };
 
