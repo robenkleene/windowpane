@@ -10,7 +10,7 @@ function performWindowAdjustment(windowAdjustment) {
   try {
     var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
     var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
-    var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize)
+    var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize);
     windowAdjustment(gridCoordinates);
     gridCoordinates = WindowManagerLibrary.validGridCoordinates(gridCoordinates, gridSize);
 
@@ -85,17 +85,17 @@ function performScreenAdjustment(screenAdjustment) {
   var destinationScreenFrame = screenFrames[index];
 
   var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
-  var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize)
+  var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize);
   var frame = WindowManagerLibrary.frameForGridCoordinates(gridCoordinates, destinationScreenFrame, gridSize);
   WindowManagerLibrary.setFrameForFocusedWindow(frame);
 }
 
 function moveFocusedWindowToNextScreen() {
-  var screenAdjustment = function(index) { index++; return index };
+  var screenAdjustment = function(index) { index++; return index; };
   performScreenAdjustment(screenAdjustment);
 }
 
 function moveFocusedWindowToPreviousScreen() {
-  var screenAdjustment = function(index) { index--; return index };
+  var screenAdjustment = function(index) { index--; return index; };
   performScreenAdjustment(screenAdjustment);
 }

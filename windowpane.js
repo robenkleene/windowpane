@@ -14,7 +14,7 @@ function getFocusedWindow() {
   var frontMostApplicationProcesses = Application("System Events").processes.whose({ frontmost: true });
   var applicationProcess = frontMostApplicationProcesses[0];
   var firstWindow = applicationProcess.windows()[0];
-  return firstWindow
+  return firstWindow;
 }
 
 function getFrameForWindow(window) {
@@ -63,7 +63,7 @@ function getScreenFrames() {
     var cocoaScreen = cocoaScreens.objectAtIndex(i);
     var rect = cocoaScreen.visibleFrame;
     var frame = frameFromRect(rect);
-    frame.y += MENUBAR_HEIGHT;    
+    frame.y += MENUBAR_HEIGHT;
     screenFrames.push(frame);
   }
   return screenFrames;
@@ -75,20 +75,20 @@ function frameFromRect(rect) {
   width = rect.size.width;
   height = rect.size.height;
   return {
-    x: x, 
-    y: y, 
-    width: width, 
+    x: x,
+    y: y,
+    width: width,
     height: height
   };
 }
 
 function indexOfWindowFrameInScreenFrames(windowFrame, screenFrames) {
-  return indexOfFrameWithLargestIntersection(windowFrame, screenFrames)
+  return indexOfFrameWithLargestIntersection(windowFrame, screenFrames);
 }
 
 function indexOfFrameWithLargestIntersection(frame, frames) {
   var info = infoForLargestIntersection(frame, frames);
-  return info.index;  
+  return info.index;
 }
 
 function frameWithLargestIntersection(frame, frames) {
@@ -113,19 +113,19 @@ function infoForLargestIntersection(frame, frames) {
       bestIndex = i;
     }
   }
-  
+
   return {
     frame: bestFrame,
     index: bestIndex
-  }
+  };
 }
 
 
 // Grid
 
 function nearestGridCoordinatesForFrame(frame, inFrame, gridSize) {
-  blockWidth = inFrame.width / gridSize.width
-  blockHeight = inFrame.height / gridSize.height
+  blockWidth = inFrame.width / gridSize.width;
+  blockHeight = inFrame.height / gridSize.height;
 
   var gridCoordinates = {};
   gridCoordinates.x = Math.round((frame.x - inFrame.x) / blockWidth);
@@ -136,14 +136,14 @@ function nearestGridCoordinatesForFrame(frame, inFrame, gridSize) {
 }
 
 function frameForGridCoordinates(gridCoordinates, inFrame, gridSize) {
-  blockWidth = inFrame.width / gridSize.width
-  blockHeight = inFrame.height / gridSize.height
+  blockWidth = inFrame.width / gridSize.width;
+  blockHeight = inFrame.height / gridSize.height;
 
   var x = Math.round(gridCoordinates.x * blockWidth + inFrame.x);
   var y = Math.round(gridCoordinates.y * blockHeight + inFrame.y);
   var w = Math.round(gridCoordinates.width * blockWidth);
   var h = Math.round(gridCoordinates.height * blockHeight);
-  return { x: x, y: y, width: w, height: h }
+  return { x: x, y: y, width: w, height: h };
 }
 
 function validGridCoordinates(gridCoordinates, gridSize) {
@@ -151,9 +151,9 @@ function validGridCoordinates(gridCoordinates, gridSize) {
   gridCoordinates.x = Math.max(gridCoordinates.x, 0);
   gridCoordinates.y = Math.min(gridCoordinates.y, gridSize.height - gridCoordinates.height);
   gridCoordinates.y = Math.max(gridCoordinates.y, 0);
-  gridCoordinates.width = Math.min(gridCoordinates.width, gridSize.width - gridCoordinates.x)
-  gridCoordinates.width = Math.max(gridCoordinates.width, 1)
-  gridCoordinates.height = Math.min(gridCoordinates.height, gridSize.height - gridCoordinates.y)
-  gridCoordinates.height = Math.max(gridCoordinates.height, 1)
+  gridCoordinates.width = Math.min(gridCoordinates.width, gridSize.width - gridCoordinates.x);
+  gridCoordinates.width = Math.max(gridCoordinates.width, 1);
+  gridCoordinates.height = Math.min(gridCoordinates.height, gridSize.height - gridCoordinates.y);
+  gridCoordinates.height = Math.max(gridCoordinates.height, 1);
   return gridCoordinates;
 }
