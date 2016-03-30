@@ -23,6 +23,33 @@ function performWindowAdjustment(windowAdjustment) {
 
 }
 
+// Move & Resize
+
+function makeFocusedWindowHalfScreenLeft() {
+  var gridCoordinates = {};
+  gridCoordinates.x = 0;
+  gridCoordinates.y = 0;
+  gridCoordinates.width = gridSize.width / 2;
+  gridCoordinates.height = gridSize.height;
+  moveFocusedWindowToGridCoordinates(gridCoordinates);
+}
+
+function makeFocusedWindowHalfScreenRight() {
+  var gridCoordinates = {};
+  gridCoordinates.x = gridSize.width / 2;
+  gridCoordinates.y = 0;
+  gridCoordinates.width = gridSize.width;
+  gridCoordinates.height = gridSize.height;
+  moveFocusedWindowToGridCoordinates(gridCoordinates);
+}
+
+function moveFocusedWindowToGridCoordinates(gridCoordinates) {
+  var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
+  var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
+  var frame = WindowManagerLibrary.frameForGridCoordinates(gridCoordinates, screenFrame, gridSize);
+  WindowManagerLibrary.setFrameForFocusedWindow(frame);
+}
+
 // Move
 
 function moveFocusedWindowLeft() {
