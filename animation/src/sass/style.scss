@@ -6,7 +6,7 @@ $artboard-divider-color: rgba(0, 0, 0, .5);
 $artboard-overlay-opacity: .5;
 $divider-px: $artboard-grid-px * $artboard-divider-interval;
 
-@import '../../../dist/sass/artboard';
+@import '../../node_modules/artboard/dist/sass/artboard';
 
 // Assets
 
