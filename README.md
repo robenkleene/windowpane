@@ -5,7 +5,13 @@
 
 Windowpane is a grid-based window manager written purely in OS X's [JavaScript for Automation](https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW1) feature introduced in Yosemite.
 
-This approach to window management was greatly inspired by the [Mjolnir](https://github.com/sdegutis/mjolnir), in fact, it's mainly just a port of the [mjolnir.sd.grid Lua scripts](https://luarocks.org/modules/sdegutis/mjolnir.sd.grid). The scripts divide the screen into `X` and `Y` horizontal and vertical divisions, and then provide for a given converting from simple grid coordinates (e.g., `x = 2, y = 2, width = 2, height = 2`).
+What that means is it lets you move your windows around like this:
+
+<img src="assets/animation.gif" alt="Animation" height="510">
+
+(And no the windows don't animate smoothly to their new location like that, although that would be awesome if they did, instead they jump instantly to the new location.)
+
+This approach to window management was inspired by the [Mjolnir](https://github.com/sdegutis/mjolnir), in fact, it's mainly just a port of the [mjolnir.sd.grid Lua scripts](https://luarocks.org/modules/sdegutis/mjolnir.sd.grid). The scripts divide the screen into `X` and `Y` horizontal and vertical divisions, and then provide for a given converting from simple grid coordinates (e.g., `x = 2, y = 2, width = 2, height = 2`).
 
 The window manager [Hammerspoon](http://www.hammerspoon.org/) is a fork of Mjjolnir
 
