@@ -25,26 +25,38 @@ Theoretically OS X's built-in Services system should be able to act as a keyboar
 
 Installing Windowpane consists of three (tedious) steps:
 
-1. Copy the source of the `windowpane.js` file into a new [Script Editor](https://developer.apple.com/library/mac/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/GettoKnowScriptEditor.html) document.
+1. Copy the source of the `windowpane.js` file into a new [Script Editor](https://developer.apple.com/library/mac/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/GettoKnowScriptEditor.html)
 2. In Script Editor, set the language type to JavaScript.
+3. Save it as `windowpane.scpt` to `~/Library/Script Libraries`.
+4. Repeat the above with `windowpane-config.js`, saving it as `windowpane-config.scpt`
+5. Setup your keyboard shortcut listener to run an example script to manage a windows state.
 
+Here's an example
+
+``` AppleScript
+WindowpaneConfig = Library('windowpane-config');
+WindowpaneConfig.makeFocusedWindowHalfScreenLeft();
+```
+
+`makeFocusedWindowHalfScreenLeft` is a function defined in `windowpane-config`. Reading the source code for `windowpane-config.js` to find our which functions are already supported. The existing configuration can be extended to support other window configurations.
 
 ## Script Libraries
 
+Windowpane uses a little known AppleScript feature called [Script Libraries](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_script_objects.html#//apple_ref/doc/uid/TP40000983-CH207-SW6), whereby any script contained in the `~/Library/Script Libraries` folder can be imported and run by another script, as the `makeFocusedWindowHalfScreenLeft` example above illustrates.
+
 ## Configuration
 
-Windowpane has two components
+Windowpane has two components:
 
-## Keyboard Shortcuts
+1. `windowpane.js`: A library of functions for managing windows  (e.g., `getFrameForFocusedWindow` or `nearestGridCoordinatesForFrame`).
+2. `windowpane-config.js`: A configuration library of functions for moving windows to specific configurations (e.g., `makeFocusedWindowHalfScreenLeft` or `moveFocusedWindowLeft`)
 
-I recommend avoiding the arrow keys for keyboard shortcuts, because it's almost difficult to avoid important built-in shortcuts, e.g., arrow keys with `⌃` conflict with switching spaces, and `⌥` and `⌘` conflict with basic text navigation.
+The `windowpane-config.js` file is meant to be edited and extended to support other window configurations.
 
 ## Tests
 
-Running tests will close, open, and move Finder windows. In other words, don't run them if you have your Finder windows in a state you want to preserve.
+Automated tests for Windowpane can be run by executing the shell script at `scripts/run_tests.sh`
 
-When running tests from the Terminal, you'll have to enabled assistive access for the Terminal application (when running GUI scripting from the command line it's the Terminal application itself that needs the privileges).
+The tests will close, open, and move Finder windows. In other words, don't run them unless you don't mind losing your current Finder window state.
 
-## Caveats
-
-Re-saving is necessary for library changes to take place.
+When running tests from the Terminal, you'll have to enabled assistive access for the Terminal application itself, because when running GUI scripting from the command line it's the the Terminal application itself that needs these privileges.
