@@ -7,7 +7,7 @@ Windowpane is a grid-based window manager written purely in OS X's [JavaScript f
 
 <img src="assets/animation.gif" alt="Animation" height="510">
 
-Unfortunately windows don't really animate smoothly like in the animation (but that would be awesome), instead they jump to their new location instantly.
+The windows don't really animate smoothly like that unfortunately, although that would be awesome, instead they jump to their new locations instantly.
 
 ## Inspiration
 
