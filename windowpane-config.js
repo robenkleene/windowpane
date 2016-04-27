@@ -38,7 +38,7 @@ function makeFocusedWindowHalfScreenRight() {
   var gridCoordinates = {};
   gridCoordinates.x = gridSize.width / 2;
   gridCoordinates.y = 0;
-  gridCoordinates.width = gridSize.width;
+  gridCoordinates.width = gridSize.width / 2;
   gridCoordinates.height = gridSize.height;
   moveFocusedWindowToGridCoordinates(gridCoordinates);
 }
