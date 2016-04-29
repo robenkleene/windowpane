@@ -14,6 +14,12 @@ function getFocusedWindow() {
   var frontMostApplicationProcesses = Application("System Events").processes.whose({ frontmost: true });
   var applicationProcess = frontMostApplicationProcesses[0];
   var firstWindow = applicationProcess.windows()[0];
+  // Quick hack to handle some strange overlay windows like the "Status Bar"
+  // when hovering links in Safari.
+  // TODO: This should have a test.
+  if (firstWindow.subrole() === "AXUnknown") {
+    firstWindow = applicationProcess.windows()[1];
+  }
   return firstWindow;
 }
 
