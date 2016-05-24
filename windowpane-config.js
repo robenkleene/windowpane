@@ -1,7 +1,8 @@
 WindowManagerLibrary = Library('windowpane');
 
 var gridSize = { width: 6, height: 3 };
-
+var max = 1000;
+var min = 0;
 
 // Window
 
@@ -72,6 +73,30 @@ function moveFocusedWindowDown() {
   performWindowAdjustment(windowAdjustment);
 }
 
+// Move Max
+
+function moveFocusedWindowMaxLeft() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.x = min; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+function moveFocusedWindowMaxRight() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.x = max; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+function moveFocusedWindowMaxUp() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.y = min; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+function moveFocusedWindowMaxDown() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.y = max; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+
+
 // Resize
 
 function resizeFocusedWindowLeft() {
@@ -91,6 +116,28 @@ function resizeFocusedWindowUp() {
 
 function resizeFocusedWindowDown() {
   var windowAdjustment = function(gridCoordinates) { gridCoordinates.height++; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+// Resize Max
+
+function resizeFocusedWindowMaxLeft() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.width = min; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+function resizeFocusedWindowMaxRight() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.width = max; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+function resizeFocusedWindowMaxUp() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.height = min; };
+  performWindowAdjustment(windowAdjustment);
+}
+
+function resizeFocusedWindowMaxDown() {
+  var windowAdjustment = function(gridCoordinates) { gridCoordinates.height = max; };
   performWindowAdjustment(windowAdjustment);
 }
 
