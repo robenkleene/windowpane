@@ -10,6 +10,10 @@ function performWindowAdjustment(windowAdjustment) {
 
   try {
     var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
+	if (!windowFrame) {
+	  return;
+	}
+
     var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
     var gridCoordinates = WindowManagerLibrary.nearestGridCoordinatesForFrame(windowFrame, screenFrame, gridSize);
     windowAdjustment(gridCoordinates);
@@ -46,6 +50,10 @@ function makeFocusedWindowHalfScreenRight() {
 
 function moveFocusedWindowToGridCoordinates(gridCoordinates) {
   var windowFrame = WindowManagerLibrary.getFrameForFocusedWindow();
+  if (!windowFrame) {
+    return
+  }
+  
   var screenFrame = WindowManagerLibrary.getScreenFrameForWindowFrame(windowFrame);
   var frame = WindowManagerLibrary.frameForGridCoordinates(gridCoordinates, screenFrame, gridSize);
   WindowManagerLibrary.setFrameForFocusedWindow(frame);

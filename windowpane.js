@@ -7,6 +7,11 @@ function setFrameForFocusedWindow(frame) {
 
 function getFrameForFocusedWindow() {
   var focusedWindow = getFocusedWindow();
+
+  if (!focusedWindow) {
+  	return;
+  }
+
   return getFrameForWindow(focusedWindow);
 }
 
@@ -14,6 +19,10 @@ function getFocusedWindow() {
   var frontMostApplicationProcesses = Application("System Events").processes.whose({ frontmost: true });
   var applicationProcess = frontMostApplicationProcesses[0];
   var firstWindow = applicationProcess.windows()[0];
+  if (!firstWindow) {
+	return;
+  }
+
   // Quick hack to handle some strange overlay windows like the "Status Bar"
   // when hovering links in Safari.
   // TODO: This should have a test.
