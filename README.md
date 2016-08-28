@@ -1,6 +1,6 @@
 # Windowpane
 
-> *If you want to touch the sky* /<BR>
+> *If you want to touch the sky*<BR>
 > *Just put a window in your eye*
 
 Windowpane is a grid-based window manager written purely in OS X's [JavaScript for Automation](https://developer.apple.com/library/mac/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html#//apple_ref/doc/uid/TP40014508-CH109-SW1) feature introduced in OS X Yosemite 10.10.
