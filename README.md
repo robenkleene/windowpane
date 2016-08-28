@@ -7,11 +7,11 @@ Windowpane is a grid-based window manager written purely in OS X's [JavaScript f
 
 <img src="assets/animation.gif" alt="Animation" height="510">
 
-Unfortunately, windows don't animate smoothly to their new locations like that (although that would be awesome); instead, they jump there instantly.
+(Unfortunately windows don't really animate smoothly to their new locations in Windowpane, although that would be awesome if they did, instead they jump to their new locations instantly.)
 
 ## Inspiration
 
-Windowpane is inspired by [Mjolnir](https://github.com/sdegutis/mjolnir). In fact, it's mainly just a port of the [mjolnir.sd.grid](https://luarocks.org/modules/sdegutis/mjolnir.sd.grid) Lua scripts to JavaScript. The scripts act as framework for positioning windows in the screen divided into horizontal rows and vertical columns.
+Windowpane is inspired by [Mjolnir](https://github.com/sdegutis/mjolnir). In fact, it's mainly just a port of the [mjolnir.sd.grid](https://luarocks.org/modules/sdegutis/mjolnir.sd.grid) Lua scripts to JavaScript. The scripts act as a framework for positioning windows by dividing the screen into rows and columns.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ To use Windowpane, you must have a keyboard shortcut listener that can trigger a
 
 I use [FastScripts](https://red-sweater.com/fastscripts/) for this, but [Keyboard Maestro](https://www.keyboardmaestro.com/main/) or [Alfred](https://www.alfredapp.com/) should work too.
 
-Theoretically, OS X's built-in Services system would be able to act as a keyboard shortcut listener as well, but in practice it doesn't work because Services run as the frontmost application. Therefore, they can't manipulate window the size and position of windows unless access for assistive devices is enabled for *every application*.
+Theoretically, OS X's built-in Services system should also be able to act as a keyboard shortcut listener, but in practice it doesn't work because Services run as the frontmost application. Therefore, they can't manipulate window the size and position of windows unless access for assistive devices is enabled for *every application*.
 
 ## Installation
 
