@@ -39,6 +39,15 @@ function makeFocusedWindowHalfScreenLeft() {
   moveFocusedWindowToGridCoordinates(gridCoordinates);
 }
 
+function makeFocusedWindowCentered() {
+  var gridCoordinates = {};
+  gridCoordinates.x = 1;
+  gridCoordinates.y = 0;
+  gridCoordinates.width = gridSize.width - 2;
+  gridCoordinates.height = gridSize.height;
+  moveFocusedWindowToGridCoordinates(gridCoordinates);
+}
+
 function makeFocusedWindowFullScreen() {
   var gridCoordinates = {};
   gridCoordinates.x = 0;
