@@ -2,8 +2,6 @@
 
 Examples that use the [default config](windowpane-config.js), including suggested keyboard shortcuts.
 
-⌤⇥↓←→⎋⌦⌫↩
-
 Center (`⇧⌃⌥⌘↑`):
 
 	WindowpaneConfig = Library('windowpane-config');
