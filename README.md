@@ -40,7 +40,7 @@ WindowpaneConfig.makeFocusedWindowHalfScreenLeft();
 
 `makeFocusedWindowHalfScreenLeft` is a function defined in `windowpane-config`. Reading the source code for `windowpane-config.js` to find our which functions are already supported. The existing configuration can be extended to support other window configurations.
 
-See [`examples.md`] for more.
+See [`examples.md`](examples.md) for more.
 
 ### Script Libraries
 
