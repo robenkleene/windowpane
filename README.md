@@ -40,6 +40,8 @@ WindowpaneConfig.makeFocusedWindowHalfScreenLeft();
 
 `makeFocusedWindowHalfScreenLeft` is a function defined in `windowpane-config`. Reading the source code for `windowpane-config.js` to find our which functions are already supported. The existing configuration can be extended to support other window configurations.
 
+See [`examples.md`] for more.
+
 ### Script Libraries
 
 Windowpane uses a little known AppleScript feature called [Script Libraries](https://developer.apple.com/library/mac/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_script_objects.html#//apple_ref/doc/uid/TP40000983-CH207-SW6), whereby any script contained in the `~/Library/Script Libraries` folder can be imported and run by another script, as illustrated by the above `makeFocusedWindowHalfScreenLeft` example.
